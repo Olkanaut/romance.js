@@ -7,7 +7,7 @@ let text = 'The little princess entered the room. The passage broke off in the m
 let numberOfLines = 16;
 let lengthOfWords = 6;//how to read user input
 
-generatePoem(text, numberOfLines);
+generatePoem(text, numberOfLines, lengthOfWords);
 
 function parseText(text){
 	let textCopy = text.slice();
@@ -52,7 +52,7 @@ function writeLine(dictionary, lengthOfWords){
 	return line;
 };
 
-function generatePoem(text, numberOfLines){
+function generatePoem(text, numberOfLines, lengthOfWords){
 	let parsedText = parseText(text); //generating the array of words, lowercase
 	let dictionary = generateDictionary(parsedText); //creating Markov Chain object
 	//let poem = []; //if we need an output as an array
