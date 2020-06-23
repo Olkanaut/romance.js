@@ -28,12 +28,6 @@ function generateDictionary(parsedText){
 	return dictionary;
 };
 
-function chooseFirstWord(dictionary){
-	let maxRand = dictionary.length;
-	let index = Math.floor(Math.random() * Math.floor(maxRand));
-	return dictionary[index];
-}
-
 function chooseRandomWord(array){
 	let maxRand = array.length;
 	let index = Math.floor(Math.random() * Math.floor(maxRand));
@@ -42,12 +36,12 @@ function chooseRandomWord(array){
 
 function writeLine(dictionary, lengthOfWords){
 	let line = '';
-	let word = chooseFirstWord(Object.keys(dictionary));
+	let word = chooseRandomWord(Object.keys(dictionary));
 	for (let i = 0; i < lengthOfWords; i++){
 		line += word + ' ';
 		word = chooseRandomWord(dictionary[word]);
 		if (!dictionary[word]) //when a word has no entries in it's Markov Chain, the program should choose a new word and continue the line until it meets the word count
-			word = chooseFirstWord(Object.keys(dictionary));
+			word = chooseRandomWord(Object.keys(dictionary));
 	}
 	return line;
 };
